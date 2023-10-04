@@ -1,0 +1,33 @@
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+            'w', 'x', 'y', 'z']
+
+def ceaser(name, shif, direction):
+    encrypt_name = ""
+    if (direction == "decode"):
+        shif *= -1
+    for char in name:
+        if char in alphabet:
+            position = alphabet.index(char)
+            new_position = position + shif
+            if (new_position > 25):
+                new_position = new_position % 26
+            elif (new_position < -25):
+                new_position = new_position % -26
+            encrypt_name = encrypt_name + alphabet[new_position]
+        else:
+            encrypt_name += char
+    print(f"The {direction}d name is : {encrypt_name}")
+should_continue=True
+while(should_continue):
+    direction=input("Type 'encode' to encrypt,tpye 'decode' to decrypt:\n")
+    text=input("Type your message:\n").lower()
+    shift=int(input("Type shift number:\n"))
+    ceaser(name=text,shif=shift,direction=direction)
+
+    dec=input("Type 'yes' if you want to  go again.Otherwise type 'no': \n")
+    if(dec=='yes'):
+        should_continue=True
+    elif(dec=='no'):
+        should_continue=False
+        print("Goodbye")
