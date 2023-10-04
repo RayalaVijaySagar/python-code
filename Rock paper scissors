@@ -1,0 +1,57 @@
+import random
+Scissors='''  Scissors
+     ______
+----'  ____)_____
+       __________)
+       __________)
+       _____)
+----.____)
+       
+'''
+Rock='''  Rock
+     _______
+----'  _____)
+       _____)
+       _____)
+       _____)
+----._____)
+       
+'''
+Paper = '''  Paper
+     _______
+----'  _____)___
+       _________)
+       __________)
+       _________)
+----.__________)
+
+'''
+
+List=[Paper,Scissors,Rock]
+k=int(input("Enter your choice :"
+        "\n1 - Paper "
+        "\n2 - Scissors "
+        "\n3 - Rock "
+            "\nYour Choice :"))
+if(k>3 or k<=0):{
+print("Enter the valid input ")
+}
+else:
+    print(f"You chose {k} {List[k-1]}")
+
+    l=random.randint(1,3)
+    print(f"Computer chose {l} - "+List[l-1])
+    if(k==l):
+        print("Tie")
+    elif((k==1) and (l==2)):
+        print("You Lost")
+    elif((k==1) and (l==3)):
+        print("You Win")
+    elif ((k == 2) and (l == 1)):
+        print("You Win")
+    elif ((k == 2) and (l == 3)):
+        print("You Lost")
+    elif((k==3) and (l==1)):
+        print("You Lost")
+    elif ((k == 3) and (l == 2)):
+        print("You Win")
